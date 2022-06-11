@@ -1,0 +1,74 @@
+const fs = require('fs');
+require('colors');
+
+let kolor = fs.readFileSync('./Write.txt', "utf8"),
+bin = [0,1],
+write = (x) => {
+  if(kolor[x] != '\n'){
+    if(kolor[x] === ' '){
+      process.stdout.write(' ')
+    }else if (kolor[x] == '{' 
+    || kolor[x] == '}' || kolor[x] == '(' 
+    || kolor[x] == ')' || kolor[x] == ']'
+    || kolor[x] == '\'' || kolor[x] == ';' 
+    || kolor[x] == '\"'|| kolor[x] == '[' 
+    || kolor[x] == '=' || kolor[x] == '+'){
+      process.stdout.write(`${kolor[x]}`.blue)
+    }else{
+      process.stdout.write(`${bin[Math.floor(Math.random() * 2)]}`.dim)
+    }
+  }else{
+    process.stdout.write(`${kolor[x]}`.random)
+  }
+  if (x<kolor.length-1) setTimeout(function() {write(++x)}, 10);
+};
+console.clear();
+setTimeout(function() {
+write(0)
+}, 0);
+
+  "name": "kolor",
+  "version": "2.0.0",
+  "lockfileVersion": 2,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "kolor",
+      "version": "2.0.0",
+      "license": "ISC",
+      "dependencies": {
+        "colors": "^1.4.0"
+      }
+    },
+    "node_modules/colors": {
+      "version": "1.4.0",
+      "resolved": "https://registry.npmjs.org/colors/-/colors-1.4.0.tgz",
+      "integrity": "sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==",
+      "engines": {
+        "node": ">=0.1.90"
+      }
+    }
+  },
+  "dependencies": {
+    "colors": {
+      "version": "1.4.0",
+      "resolved": "https://registry.npmjs.org/colors/-/colors-1.4.0.tgz",
+      "integrity": "sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA=="
+    }
+  }
+}
+
+  "name": "kolor",
+  "version": "2.0.0",
+  "description": "...pending",
+  "main": "kolor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node kolor.js"
+  },
+  "author": "mazi",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}

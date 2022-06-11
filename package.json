@@ -1,0 +1,15 @@
+{
+  "name": "kolor",
+  "version": "2.0.0",
+  "description": "...pending",
+  "main": "kolor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node kolor.js"
+  },
+  "author": "mazi",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
